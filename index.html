@@ -1,506 +1,437 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <link rel="icon" href="./images/mainlogo.png">
-  <!-- <link href="./style.css" rel="stylesheet"> -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <title>Ahmed Mansour Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    /* Style for the image overlay (lightbox) */
-    .project-wrap {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.8);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="./images/mainlogo.png">
 
-    .project-wrap img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-    }
 
-    /* Card Image */
-    .card-img-top {
-      cursor: pointer;
-    }
-  </style>
+<title>Ahmed Mansour | BIM-Oriented Technical Office Engineer | Roads & Infrastructure</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  .bgc{
+    background-color: #504c41;
+    color: #e2e8f0; 
+  }
+
+:root {
+  --bg: #0f172a;
+  --text: #e2e8f0;
+  --card: rgba(255,255,255,0.05);
+}
+
+.light-mode {
+  --bg: #d6d4d4;
+  --text: #111;
+  --card: rgba(0,0,0,0.05);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui;
+  transition: 0.3s;
+}
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+}
+
+.highlight { color: #38bdf8; }
+
+.glass {
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: 0.3s;
+}
+
+.glass:hover { transform: translateY(-5px); }
+
+.section { padding: 80px 0; }
+
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+</style>
+
 </head>
 
 <body>
-  <svg class="svg-curve" viewBox="0 0 1440 79" xmlns="http://www.w3.org/2000/svg">
-    <path d="M-100 0C-100 0 218.416 55.835 693.5 55.835C1168.58 55.835 1487 0 1487 0V79H-100V0Z"></path>
-  </svg>
-  <header class="p-3 bg-black text-white">
-    <nav class="navbar pb-5" style="background-color: #000000;">
-      <div class="container-fluid image-container">
-        <a class="navbar-brand text-white" href="#">
-          <img src="./images/mainlogo.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top">
-          <span class="px-2">Ahmed Mansour</span>
-        </a>
-      </div>
-    </nav>
-    <div class="row">
-      <div class="col-md-8 p-3 order-md-1 order-2">
-        <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-8">
-            <h1 class="text-center">Hello!</h1>
-            <p class="text-start fs-5">
-              My name is Ahmed Mansour, I’m a Civil Engineer with over 7 years of experience in the design and execution of infrastructure and construction projects, based in Cairo, Egypt. Proven expertise in delivering roads, utilities, and site development works with a focus on technical accuracy and project efficiency.<br><br>
-              Passionate about integrating computational tools, machine learning, and automation into engineering workflows to enhance design precision, optimize processes, and reduce human error.<br> With a multidisciplinary approach combining civil engineering and computer science, I aim to drive innovation and bring data-driven solutions to the construction and infrastructure industry.<br><br>
-              For more information, see my CV in English <a href="./images/resume.pdf" target="_blank">Here</a> or my <a href="https://linkedin.com/in/ahmed-mansour-900624171" target="_blank">LinkedIn</a><br>
-              And For CV in Arabic <a href="./images/resume_ar.pdf" target="_blank">Here</a>
-            </p>
-          </div>
+
+<button class="btn btn-outline-light toggle-btn" onclick="toggleMode()">🌙</button>
+
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="container">
+    <h1 class="mt-5">Ahmed Mansour</h1>
+
+    <p class="mt-3">
+    <span class="highlight"><strong>Senior Technical Office Engineer</strong></span><br>
+    <strong>BIM-Oriented | Roads & Infrastructure | Civil 3D & Automation Specialist</strong>
+    </p>
+
+    <br>
+
+    <p>
+    Senior Technical Office Engineer with 7+ years of experience in civil infrastructure and
+    building projects, specializing in roads, landscape, and utilities. Proven track record in
+    delivering high-quality shop drawings, BOQs, and technical submittals for large-scale
+    developments.<br>
+    <br>
+    Skilled in BIM and digital engineering workflows, with advanced expertise in Autodesk Civil
+    3D (road design and pipe networks), InfraWorks, and Navisworks. Experienced in
+    developing Dynamo scripts to automate Civil 3D processes, reducing manual effort and
+    improving productivity. Currently expanding capabilities in Revit to enhance BIM integration
+    across multidisciplinary projects.<br>
+    <br>
+    Demonstrated ability to coordinate with consultants, contractors, and multidisciplinary teams
+    to resolve design conflicts, optimize quantities, and ensure alignment between design and
+    site execution. Contributed to improved project efficiency, reduced rework, and timely
+    delivery across multiple infrastructure and building projects.<br>
+    <br>
+    <strong>Key Skills:</strong><br>
+    BIM, Civil 3D, InfraWorks, Navisworks, Dynamo, Revit (Basic), Quantity Surveying, BOQs, 
+    Shop Drawings, Technical Submittals, Road Design, Pipe Networks, Design Coordination, 
+    Construction Documentation.
+    </p>
+
+    <br>
+
+    <a href="./images/resume.pdf" class="btn btn-info" target="_blank">Download CV</a>
+
+  </div>
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section class="section container hidden">
+  <h2>Experience</h2>
+
+  <div class="glass mb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6" onclick="openModal('marble_chair')">
+          <img src="./images/Marble Chair.png"
+          class="img-fluid mb-3" alt="Card image" id="image5">
         </div>
-      </div>
-      <div class="col-md-4 order-md-2 order-1">
-        <picture>
-          <img class="img-fluid" src="./images/header2.jpg" alt="header image">
-        </picture>
+        <div class="col-md-6" onclick="openModal('dining_table')">
+          <img src="./images/Dining Table.png"
+          class="img-fluid mb-3" alt="Card image" id="image6">
+        </div>
+        <div class="col-md-6" onclick="openModal('coffee_table_1')">
+          <img src="./images/Coffee Table 1.png"
+          class="img-fluid mb-3" alt="Card image" id="image7">
+        </div>
+        <div class="col-md-6" onclick="openModal('coffee_table_2')">
+          <img src="./images/Coffee Table 2.png"
+          class="img-fluid mb-3" alt="Card image" id="image8">
+        </div>
       </div>
     </div>
-  </header>
 
-  <svg class="svg-curve" viewBox="0 0 1440 79" xmlns="http://www.w3.org/2000/svg">
-    <path d="M-100 79C-100 79 218.416 23.165 693.5 23.165C1168.58 23.165 1487 79 1487 79V0H-100V79Z"></path>
-  </svg>
+    <h5>Senior Technical Office Engineer</h5>
+    <p>El-Alfy Contracting Company Marble and Granite Works (2025–2026)</p>
+    <ul>
+    <li>Delivered detailed shop drawings for high-end marble and
+    granite works, achieving fast-track approvals and minimizing
+    revision cycles.</li>
+    <li>Optimized material utilization through advanced slab layout
+    planning, reducing material waste and overall project costs.</li>
+    <li>Led coordination between design, production, and site teams,
+    ensuring seamless execution from fabrication to installation.</li>
+    <li>Improved documentation workflows and submission tracking,
+    enhancing project efficiency and turnaround time.</li>
+    <li>Handled 70+ drawings / submissions.</li>
+    <li>Reduced material waste by 10%.</li>
+    <li>Improved workflows and approvals.</li>
+    </ul>
+  </div>
 
-  <main>
-    <div class="text-center">
-      <h1>My Work</h1>
-      <p>A collection of projects I've worked on and previous experience</p>
-    </div>
-    <section class="row justify-content-center">
-      <!-- Computer Science -->
-      <section class="col-sm-8 mb-5 mt-2">
-      </section>
-
-
-      <!-- Projects Section -->
-      <section class="col-sm-8 mb-5 mt-2">
-        <div class="row-cols-1 text-start m-3 fs-3 fw-medium">Work Experience in Civil Engineering</div>
-        <div class="row row-cols-1 row-cols-md-1 g-4">
-
-          <!-- Zero Image Card -->
-          <div class="col">
-            <div class="card h-100 p-3 shadow-lg p-3 my-301 bg-body-tertiary rounded">
-              <img src="./images/mountain_view_aliva.jpg"
-                class="card-img-top" alt="Card image" id="image0">
-              <div class="card-body">
-                <h5 class="card-title">Aliva Mountain View Project, Mostakbal City</h5>
-                <h6 class="card-title">Owner: Mountain View</h6>
-                <div class="card-text">
-                  <p><strong>Company Name: </strong>Farag Sultan Contracting and Transportation Establishment</p>
-                  <p><strong>Role: </strong>Technical Office Engineer, Site Engineer</p>
-                  <h5>Description:</h5>
-                  <p>
-                    •	Experienced in the end-to-end management of technical documentation and on-site construction activities for infrastructure, roadworks, and landscape projects. Responsible for the preparation, coordination, and oversight of all technical processes, ensuring seamless integration between design and construction phases. Duties include preparing and reviewing technical submittals, shop drawings, and quantity estimations to ensure compliance with project specifications and construction standards.<br>
-                    •	Proficient in managing daily site operations, including soil cutting, leveling, and verifying elevations and levels against design requirements. Maintains accurate records of all project activities and ensures adherence to quality, safety, and timeline goals. Collaborates effectively with project teams, consultants, and contractors to ensure efficient execution and successful delivery of construction projects within budget and to the required quality standards.
-                  </p>
-                  <p><strong>Key Responsibilities: </strong><br>
-                    •	Prepare and review shop drawings, as-built drawings, and coordination drawings for roads, paving, curbstone, signage, landscape hardscape, and softscape elements. <br>
-                    •	Conduct quantity take-offs and prepare BOQs based on approved drawings and specifications. <br>
-                    •	Review project drawings, specifications, and contract documents to ensure compliance with technical requirements. <br>
-                    •	Coordinate with site engineers and construction teams to ensure accurate implementation of designs. <br>
-                    •	Assist in material submittals, method statements, and technical documentation. <br>
-                    •	Track and manage RFIs, transmittals, and approvals from consultants or client representatives. <br>
-                    •	Attend technical meetings and provide engineering support during project execution. <br>
-                    •	Ensure adherence to quality, safety, and environmental standards on all engineering activities. <br>
-                    •	Support project planning and scheduling activities with technical inputs. <br>
-                  </p>
-                  <h5>Achievements:</h5>
-                  <p>
-                    •	Successfully completed the substitution layers and concrete slab installation for the roundabout, ensuring proper foundation and structural integrity in line with project specifications.<br>
-                    •	Led the construction and installation of the interlock pavement for the roundabout and an entire parcel of the project, enhancing the aesthetics and functionality of the area while adhering to quality standards.<br>
-                    •	Oversaw and executed the construction of the asphalt road for a major roadway, ensuring smooth and durable road surfaces while meeting all project deadlines.<br>
-                    •	Managed the installation of interlock paving for an entire parcel, ensuring seamless execution and high-quality finish, which contributed to the overall project’s timely completion.<br>
-                    •	Spearheaded the repair and replacement of damaged interlock in a designated parcel, improving the area's safety and visual appeal while minimizing disruption to ongoing construction activities.<br>
-                    •	Coordinated and completed the substitution layers for multiple roads across the project, ensuring consistency and precision in the foundation layers, which directly contributed to the durability and performance of the final road surfaces.<br>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- The image lightbox overlay -->
-            <div class="project-wrap" id="projectWrap0">
-              <img src="" id="overlayImage0" alt="Expanded Image">
-            </div>
-          </div>
-
-          
-          <!-- First Image Card -->
-          <div class="col">
-            <div class="card h-100 p-3 shadow-lg p-3 my-301 bg-body-tertiary rounded">
-              <img src="./images/sodic_east_el_shorouk_project.png"
-                class="card-img-top" alt="Card image" id="image1">
-              <div class="card-body">
-                <h5 class="card-title">SODIC East New Heliopolis Project, El Shorouk</h5>
-                <h6 class="card-title">Owner: SODIC East Real Estate Development Company</h6>
-                <div class="card-text">
-                  <p><strong>Company Name: </strong>Farag Sultan Contracting and Transportation Establishment</p>
-                  <p><strong>Role: </strong>Technical Office Engineer, Site Engineer</p>
-                  <h5>Description:</h5>
-                  <p>
-                    •	Experienced in the end-to-end management of technical documentation and on-site construction activities for infrastructure, roadworks, and landscape projects. Responsible for the preparation, coordination, and oversight of all technical processes, ensuring seamless integration between design and construction phases. Duties include preparing and reviewing technical submittals, shop drawings, and quantity estimations to ensure compliance with project specifications and construction standards.<br>
-                    •	Proficient in managing daily site operations, including soil cutting, leveling, and verifying elevations and levels against design requirements. Maintains accurate records of all project activities and ensures adherence to quality, safety, and timeline goals. Collaborates effectively with project teams, consultants, and contractors to ensure efficient execution and successful delivery of construction projects within budget and to the required quality standards.
-                    <h5>Key Responsibilities:</h5>
-                  <p>
-                    •	Prepare and review shop drawings, as-built drawings, and coordination drawings for roads, paving, curbstone, signage, landscape hardscape, and softscape elements. <br>
-                    •	Conduct quantity take-offs and prepare BOQs based on approved drawings and specifications. <br>
-                    •	Review project drawings, specifications, and contract documents to ensure compliance with technical requirements. <br>
-                    •	Coordinate with site engineers and construction teams to ensure accurate implementation of designs. <br>
-                    •	Assist in material submittals, method statements, and technical documentation. <br>
-                    •	Track and manage RFIs, transmittals, and approvals from consultants or client representatives. <br>
-                    •	Attend technical meetings and provide engineering support during project execution. <br>
-                    •	Ensure adherence to quality, safety, and environmental standards on all engineering activities. <br>
-                    •	Support project planning and scheduling activities with technical inputs. <br>
-                  </p>
-                  <h5>Achievements:</h5>
-                  <p>
-                    •	Successfully completed the substitution layers and concrete slab installation for the roundabout, ensuring proper foundation and structural integrity in line with project specifications.<br>
-                    •	Led the construction and installation of the interlock pavement for the roundabout and an entire parcel of the project, enhancing the aesthetics and functionality of the area while adhering to quality standards.<br>
-                    •	Oversaw and executed the construction of the asphalt road for a major roadway, ensuring smooth and durable road surfaces while meeting all project deadlines.<br>
-                    •	Managed the installation of interlock paving for an entire parcel, ensuring seamless execution and high-quality finish, which contributed to the overall project’s timely completion.<br>
-                    •	Spearheaded the repair and replacement of damaged interlock in a designated parcel, improving the area's safety and visual appeal while minimizing disruption to ongoing construction activities.<br>
-                    •	Coordinated and completed the substitution layers for multiple roads across the project, ensuring consistency and precision in the foundation layers, which directly contributed to the durability and performance of the final road surfaces.<br>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- The image lightbox overlay -->
-            <div class="project-wrap" id="projectWrap1">
-              <img src="" id="overlayImage1" alt="Expanded Image">
-            </div>
-          </div>
-
-          <!-- second Image Card -->
-          <div class="col">
-            <div class="card h-100 p-3 shadow-lg p-3 my-301 bg-body-tertiary rounded">
-              <img src="./images/New_Obour_Social_Housing_Project.jpg"
-                class="card-img-top" alt="Card image" id="image2">
-              <div class="card-body">
-                <h5 class="card-title">Social Housing Project in District 14, New Obour City</h5>
-                <h6 class="card-title">Owner: Urban Communities Authority</h6>
-                <div class="card-text">
-                  <p><strong>Company Name: </strong>Housing And Building National Research Center</p>
-                  <p><strong>Role: </strong>Consulting Engineer</p>
-                  <h5>Description:</h5>
-                  <p>
-                    •	Responsible for ensuring that all construction activities are executed in accordance with design intent, contractual obligations, and industry standards. My role bridges the gap between the client, design teams, and contractors by providing technical oversight, quality assurance, and construction supervision throughout the project lifecycle.<br>
-                    •	Responsible for overseeing carpentry, metalwork, and concrete pouring activities, I play a crucial role in ensuring that all construction tasks meet the required quality, safety, and design standards. My primary responsibility will be to monitor and guide the subcontractors and contractors in executing the works in accordance with the approved plans and specifications.
-                  </p>
-                  <h5>Key Responsibilities:</h5>
-                  <p>
-                    •	 Supervise and monitor construction activities to ensure they are executed in accordance with approved drawings, specifications, codes, and client requirements.<br>
-                    •	Review and approve contractor submittals, including shop drawings, materials, method statements, and technical queries.<br>
-                    •	Conduct regular site inspections and quality checks to verify compliance with design, workmanship standards, and safety regulations.<br>
-                    •	Issue site instructions, non-conformance reports (NCRs), and observation reports when deviations from approved documents or quality standards are observed.<br>
-                    •	Evaluate and monitor the contractor’s construction schedule, and report delays, risks, and required corrective actions.<br>
-                    •	Oversee testing and commissioning processes to ensure that materials and systems meet project specifications and quality standards. <br>
-                    •	Maintain accurate records of inspections, site activities, correspondence, and approvals.<br>
-                    •	Assist with snagging, de-snagging, and final handover procedures, ensuring that all works are completed to satisfaction.<br>
-                    •	Ensure that health, safety, and environmental (HSE) practices are implemented and maintained throughout the construction phase.<br>
-                    •	Oversee and monitor all carpentry and metalwork activities on-site, ensuring that the works are executed according to approved plans, specifications, and standards. This includes checking the quality of materials, workmanship, and compliance with safety regulations. <br>
-                    •	Supervise the process of concrete pouring, ensuring that it meets project requirements, including mix ratios, timing, and curing methods. Verify that the work is carried out in compliance with structural design specifications and industry best practices. <br>
-                    •	Regularly communicate and collaborate with subcontractors and contractors handling carpentry, metalwork, and concrete works to ensure the timely and efficient completion of tasks. Address any issues or concerns that may arise during the construction process. <br>
-                    •	Conduct frequent inspections of carpentry, metalwork, and concrete pouring activities, ensuring adherence to quality standards. Document findings and prepare reports on the progress, issues, and recommendations for corrective actions. <br>
-                    •	Ensure all works comply with local building codes, regulations, and client requirements. Maintain accurate records of inspections, approvals, and any changes made to the original plans or designs. <br>
-                    •	Identify and resolve any technical issues or discrepancies related to the carpentry, metalwork, or concrete works. Provide technical support and recommendations to contractors and other stakeholders. <br>
-                    •	Ensure that all carpentry, metalwork, and concrete activities are carried out with a high standard of safety, and enforce compliance with health and safety regulations on-site. <br>
-                    •	Track the progress of the works to ensure that the activities are completed on schedule. Provide regular updates to the project management team regarding any delays or obstacles that may affect the project timeline. <br>
-                    •	Work closely with the design and architectural teams to address any issues or clarifications regarding the execution of carpentry, metalwork, and concrete-related elements in the project. <br>
-                  </p>
-                  <h5>Achievements:</h5>
-                  <p>
-                    •	Led the supervision of carpentry, metalwork, and concrete works across many residential zones, ensuring all construction tasks met quality standards, regulatory requirements, and project timelines.<br>
-                    •	Managed and coordinated the supervision of construction activities across several residential zones, resulting in the timely and efficient completion of key tasks without compromising on quality or safety.<br>
-                    •	Conducted rigorous inspections and quality control across multiple residential zones, maintaining consistent quality standards and resolving challenges across diverse project sites.<br>
-                    •	Effectively supervised the work across multiple residential areas, ensuring alignment with the overall project timeline and minimizing delays, contributing to the on-time delivery of the development.<br>
-                    •	Enhanced communication and collaboration among contractors working across different areas, ensuring smooth project flow and effective troubleshooting of issues that arose during construction.<br>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- The image lightbox overlay -->
-            <div class="project-wrap" id="projectWrap2">
-              <img src="" id="overlayImage2" alt="Expanded Image">
-            </div>
-          </div>
-
-          <!-- third Image Card -->
-          <div class="col">
-            <div class="card h-100 p-3 shadow-lg p-3 my-301 bg-body-tertiary rounded">
-              <img src="./images/R2.jpg"
-                class="card-img-top" alt="Card image" id="image3">
-              <div class="card-body">
-                <h5 class="card-title">R2 Residential Districts, New Administrative Capital (NAC)</h5>
-                <h6 class="card-title">Owner:  Engineering Authority of the Egyptian Armed Forces</h6>
-                <div class="card-text">
-                  <p><strong>Company Name: </strong>El-Masrawyah Building & Construction</p>
-                  <p><strong>Role: </strong>Executive Engineer</p>
-                  <h5>Description:</h5>
-                  <p>
-                    •	Contributed to the execution and coordination of construction works for the R2 residential districts one of the major zones in Egypt’s New Administrative Capital. Worked closely with site teams, consultants, and contractors to ensure high-quality delivery of structural, civil, and infrastructure components for residential buildings and supporting utilities.<br>
-                    •	Responsible For 12 Residential Building overseeing all technical aspects from foundation to completion. My responsibilities included coordinating with architects, contractors, and stakeholders, ensuring that construction adhered to approved designs, and performing regular quality and safety inspections. I also managed resources, tracked project progress, and resolved engineering challenges to ensure timely, cost-effective, and high-quality project delivery while maintaining compliance with safety and environmental standards.
-                  </p>
-                  <h5>Key Responsibilities:</h5>
-                  <p>
-                    •	Supervised daily site operations, including structural and finishing works for multi-story residential buildings.<br>
-                    •	Assisted in the review and implementation of construction drawings and technical specifications.<br>
-                    •	Coordinated with subcontractors and suppliers to ensure timely delivery of materials and resources.<br>
-                    •	Monitored compliance with safety, quality, and environmental standards across assigned work areas.<br>
-                    •	Prepared daily and weekly progress reports and submitted updates to the project management team.<br>
-                    •	Participated in technical meetings and site inspections with consultants and client representatives.<br>
-                    •	Supported quality control and snagging activities during handover phases.<br>
-                  </p>
-                  <h5>Achievements:</h5>
-                  <p>
-                    •	Successfully contributed to the completion of key phases in R2 involving 12 Residential Building near New capital English school.<br>
-                    •	Improved site productivity by streamlining material handling and labor coordination in assigned zones.<br>
-                    •	Maintained high standards of site safety and compliance, contributing to a zero-incident record during tenure.<br>
-                    •	Earned recognition from site management for proactive issue resolution and attention to construction detail.<br>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- The image lightbox overlay -->
-            <div class="project-wrap" id="projectWrap3">
-              <img src="" id="overlayImage3" alt="Expanded Image">
-            </div>
-          </div>
-
-          <!-- forth Image Card -->
-          <div class="col">
-            <div class="card h-100 p-3 shadow-lg p-3 my-301 bg-body-tertiary rounded">
-              <img src="./images/R1.jpg"
-                class="card-img-top" alt="Card image" id="image4">
-              <div class="card-body">
-                <h5 class="card-title">R1 / R2 Residential Districts, New Administrative Capital (NAC)</h5>
-                <h6 class="card-title">Owner:  Engineering Authority of the Egyptian Armed Forces</h6>
-                <div class="card-text">
-                  <p><strong>Company Name: </strong>Al-Maraj Building & Construction</p>
-                  <p><strong>Role: </strong>Executive Engineer</p>
-                  <h5>Description:</h5>
-                  <p>
-                    •	Contributed to the execution and coordination of construction works for the R2 residential districts one of the major zones in Egypt’s New Administrative Capital. Worked closely with site teams, consultants, and contractors to ensure high-quality delivery of structural, civil, and infrastructure components for residential buildings and supporting utilities.<br>
-                    •	Responsible For 11 Residential Building in Total in R1 / R2 overseeing all technical aspects from foundation to completion. My responsibilities included coordinating with architects, contractors, and stakeholders, ensuring that construction adhered to approved designs, and performing regular quality and safety inspections. I also managed resources, tracked project progress, and resolved engineering challenges to ensure timely, cost-effective, and high-quality project delivery while maintaining compliance with safety and environmental standards.
-                  </p>
-                  <h5>Key Responsibilities:</h5>
-                  <p>
-                    •	Lead and manage the execution of building construction projects from planning to completion, ensuring compliance with design specifications, budget, and schedule.<br>
-                    •	Coordinate with consultants, contractors, suppliers, and stakeholders to ensure smooth project execution and effective communication across all phases.<br>
-                    •	Review and approve structural, architectural, and MEP drawings and specifications before and during execution.<br>
-                    •	Supervise site activities to ensure compliance with approved drawings, construction standards, and quality control procedures.<br>
-                    •	Evaluate contractor performance, quality of workmanship, and adherence to contract terms.<br>
-                    •	Oversee the preparation and review of material submittals, method statements, and work programs.<br>
-                    •	Prepare and present progress reports, cost updates, and project status to senior management or client representatives.<br>
-                    •	Ensure accurate documentation of all project records, including site reports, test results, approvals, and correspondence.<br>
-                  </p>
-                  <h5>Achievements:</h5>
-                  <p>
-                    •	Successfully contributed to the completion of key phases in R1/R2 involving 11 Residential Building.<br>
-                    •	Improved site productivity by streamlining material handling and labor coordination in assigned zones.<br>
-                    •	Maintained high standards of site safety and compliance, contributing to a zero-incident record during tenure.<br>
-                    •	Earned recognition from site management for proactive issue resolution and attention to construction detail.<br>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- The image lightbox overlay -->
-            <div class="project-wrap" id="projectWrap4">
-              <img src="" id="overlayImage4" alt="Expanded Image">
-            </div>
-          </div>
-          
+  <div class="glass mb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6" onclick="openModal('sodic_east')">
+          <img src="./images/sodic_east_el_shorouk_project.png"
+          class="img-fluid mb-3" alt="Card image" id="image0">
         </div>
-      </section>
-
-      <hr>
-
-      <!-- Projects Section -->
-      <section class="col-sm-8 mb-5 mt-2">
-        <div class="text-start m-3">
-          <h3>Skills and Competencies</h3>
-          <p>
-            •	Strong knowledge of construction methods and materials.<br>
-            •	Proficient in the use of surveying equipment and software to measure and document site levels.<br>
-            •	Excellent communication skills, with the ability to interact with clients, consultants, and contractors.<br>
-            •	Ability to prepare detailed progress reports, material requests, and work orders.<br>
-            •	Knowledge of safety standards and regulations within the construction industry.<br>
-            •	Strong problem-solving skills, with the ability to address challenges on-site quickly and efficiently.<br>
-            </p>
+        <div class="col-md-6" onclick="openModal('mountain_view')">
+          <img src="./images/mountain_view_aliva.jpg"
+          class="img-fluid mb-3" alt="Card image" id="image1">
         </div>
-          <div class="text-start m-3">
-            <h5>Engineering & Design Software</h5>
-            <p>
-              •	AutoCAD (2D & 3D)<br>
-              •	Autodesk Civil 3D<br>
-              •	Revit<br>
-              •	Sokkia Surveying Programs<br>
-            </p>
-
-            <h5>Project Management & Documentation</h5>
-            <p>
-              •	Microsoft Office Suite (Excel, Word, PowerPoint)<br>
-              •	Microsoft Project / Primavera P6<br>
-              •	Document control<br>
-            </p>
-
-            <h5>Technical Engineering Skills</h5>
-            <p>
-              •	Preparation of Shop Drawings & As-Built Drawings<br>
-              •	Quantity Surveying & TakeOffs<br>
-              •	Material Submittals & Technical Reports<br>
-              •	Method Statement Preparation<br>
-              •	RFI & Transmittal Management<br>
-              •	Knowledge of construction codes and standards<br>
-            </p>
-
-            <h5>Site & Construction Knowledge</h5>
-            <p>
-              •	Roads and Infrastructure Detailing (pavement layers, curbstones, road marking, signage)<br>
-              •	Hardscape Works (paving, interlock, street furniture)<br>
-              •	Site Execution Coordination & Technical Support<br>
-              •	Technical Support Construction Sequence Planning<br>
-              •	QA/QC Coordination and Inspection Support<br>
-            </p>
-
-            <h5>Programming Languages: </h5>
-            <p>Python and Some Degree of Knowledge with JavaScript, C and Java</p>
-            
-            <h5>Others: </h5>
-            <p>HTML, CSS, SQL</p>
-
-            <h5>Certifications & Courses</h5>
-            <p>
-              •	AutoCAD / Civil 3D Advanced Training – YouTube<br>
-              •	BIM Fundamentals for Engineers Coursera<br>
-              •	BIM Application for Engineers Coursera<br>
-              •	Learning How to Learn: Powerful mental tools to help you master tough subjects – Coursera<br>
-              •	Learn to Program: The Fundamentals – Coursera<br>
-              •	CS50’s Introduction to Programming with Python HarvardX (CS50P) – Completed with Final Project<br>
-              •	CS50’s Introduction to Computer Science – HarvardX (CS50X) Completed with Final Project.<br>
-            </p>
-
-            <h5>Additional Information</h5>
-            <p>
-              •	All Courses Certificate and Experience Certificate are Available on my <a href="https://linkedin.com/in/ahmed-mansour-900624171" target="_blank">LinkedIn</a> Account<br>
-            </p>
-            </div>
-        </section>
-
-    </section>
-  </main>
-
-  <svg class="svg-curve" viewBox="0 0 1440 79" xmlns="http://www.w3.org/2000/svg">
-    <path d="M-100 0C-100 0 218.416 55.835 693.5 55.835C1168.58 55.835 1487 0 1487 0V79H-100V0Z"></path>
-  </svg>
-
-  <footer class="p-3 bg-black text-white">
-    <div class="row">
-      <ul class="col nav">
-        <li class="nav-item ms-2">
-          <p class="nav-link text-white"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-              fill="currentColor" class="bi bi-c-circle" viewBox="0 0 16 16">
-              <path
-                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.146 4.992c-1.212 0-1.927.92-1.927 2.502v1.06c0 1.571.703 2.462 1.927 2.462.979 0 1.641-.586 1.729-1.418h1.295v.093c-.1 1.448-1.354 2.467-3.03 2.467-2.091 0-3.269-1.336-3.269-3.603V7.482c0-2.261 1.201-3.638 3.27-3.638 1.681 0 2.935 1.054 3.029 2.572v.088H9.875c-.088-.879-.768-1.512-1.729-1.512" />
-            </svg> No Rights Reserved</p>
-        </li>
-      </ul>
-      <ul class="col nav justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link text-white" href="https://github.com/AhmedMansour024" target="_blank"><svg
-              xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-github"
-              viewBox="0 0 16 16">
-              <path
-                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
-            </svg></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="https://linkedin.com/in/ahmed-mansour-900624171" target="_blank"><svg
-              xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-linkedin"
-              viewBox="0 0 16 16">
-              <path
-                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-            </svg></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="https://www.youtube.com/@AhmedMansour024" target="_blank"><svg
-              xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-youtube"
-              viewBox="0 0 16 16">
-              <path
-                d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
-            </svg></a>
-        </li>
-      </ul>
-      <div class="col-sm">
-        <ul class="nav justify-content-center">
-          <li class="nav-item">
-            <!-- Link to download/view the resume -->
-            <a class="nav-link text-white" href="./images/resume.pdf" target="_blank">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                class="bi bi-file-person" viewBox="0 0 16 16">
-                <path
-                  d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
-                <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-              </svg>
-              My Resume/CV
-            </a>
-          </li>
-        </ul>
       </div>
-  </footer>
+    </div>
+    <h5>Senior Technical Office Engineer</h5>
+    <p>Farag Sultan Contracting and Transportation Establishment
+    (Earthwork & Roads) (2021–2025)</p>
+    <ul>
+      <li>Delivered 150+ shop drawings and as-built drawings for roads,
+      landscape, and infrastructure works, achieving high consultant
+      approval rates and minimizing revision cycles.</li>
+      <li>Performed quantity take-offs and BOQ preparation for multiple
+      large-scale projects (SODIC East El Shorouk and Mountain View Aliva),
+      improving estimation accuracy and reducing material waste.</li>
+      <li>Coordinated with multidisciplinary teams (site, consultants, and
+      subcontractors) to resolve design conflicts, reducing site rework by approximately 20%.</li>
+      <li>Utilized Civil 3D for road design, improving design efficiency and accuracy.</li>
+      <li>Supported project planning and execution by managing RFIs,
+      transmittals, and technical submissions, ensuring timely approvals.</li>
+    </ul>
+  </div>
 
-  <svg class="svg-curve" viewBox="0 0 1440 79" xmlns="http://www.w3.org/2000/svg">
-    <path d="M-100 79C-100 79 218.416 23.165 693.5 23.165C1168.58 23.165 1487 79 1487 79V0H-100V79Z"></path>
-  </svg>
+  <div class="glass mb-3">
+    <div onclick="openModal('new_obour')">
+      <img src="./images/New_Obour_Social_Housing_Project.jpg"
+      class="img-fluid mb-3" alt="Card image" id="image2">
+    </div>
 
-  <script>
-    // Function to open the lightbox
-    function openLightbox(imageId, overlayId, overlayImageId) {
-      const img = document.getElementById(imageId);
-      const overlay = document.getElementById(overlayId);
-      const overlayImage = document.getElementById(overlayImageId);
+    <h5>Consulting Engineer</h5>
+    <p>Housing & Building National Research Center (HBRC) (2020–2021)</p>
+    <ul>
+      <li>Represented the consultant/client side in supervising construction
+      activities, ensuring full compliance with approved drawings,
+      specifications, and Egyptian construction codes.</li>
+      <li>Reviewed and approved contractor submittals, including shop
+      drawings, materials, and method statements, ensuring technical
+      accuracy and adherence to project requirements.</li>
+      <li>Conducted site inspections and quality audits, identifying nonconformities and 
+      issuing NCRs and corrective actions, contributing to improved construction quality.</li>
+      <li>Monitored project progress against schedule, identifying delays and
+      risks, and recommending corrective measures to maintain timelines.</li>
+      <li>Coordinated with contractors and stakeholders to resolve technical
+      issues and ensure proper implementation of design intent.</li>
+      <li>Enforced QA/QC procedures and safety standards across site
+      activities, supporting consistent compliance throughout the project lifecycle.</li>
+    </ul>
+  </div>
 
-      img.onclick = function () {
-        overlay.style.display = "flex";  // Show the overlay
-        overlayImage.src = img.src;     // Set the overlay image to the clicked image's source
-      };
+  <div class="glass">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6" onclick="openModal('r1')">
+          <img src="./images/R1.png"
+          class="img-fluid mb-3" alt="Card image" id="image3">
+        </div>
+        <div class="col-md-6" onclick="openModal('r2')">
+          <img src="./images/R2.jpg"
+          class="img-fluid mb-3" alt="Card image" id="image4">
+        </div>
+      </div>
+    </div>
+    
+    <h5>Executive Engineer | Site Engineer</h5>
+    <p>Al-Maraj Building & Construction (2018–2020)</p>
+    <ul>
+      <li>RManaged execution of residential building projects in the New Administrative Capital,
+      ensuring compliance with design, quality, and schedule requirements.</li>
+      <li>Led coordination between consultants, contractors, and stakeholders,
+      improving communication and project efficiency.</li>
+      <li>Supervised site activities and quality control processes, ensuring
+      adherence to specifications and reducing defects during handover.</li>
+      <li>Prepared progress reports, cost tracking, and project updates for senior management.</li>
+    </ul>
+  </div>
 
-      // Close the overlay when clicking outside the image
-      overlay.onclick = function (event) {
-        if (event.target === overlay) {
-          overlay.style.display = "none";  // Hide the overlay
-        }
-      };
+</section>
+
+
+<!-- SKILLS -->
+
+<section class="section container hidden">
+  <h2>Skills</h2>
+
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="glass">
+      <h6>BIM & Engineering</h6>
+      <ul>
+        <li>Autodesk Civil 3D (Road Design, Pipe Networks)</li>
+        <li>InfraWorks & Navisworks</li>
+        <li>Revit (Basic)</li>
+      </ul>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="glass">
+      <h6>Automation</h6>
+      <ul>
+        <li>Dynamo</li>
+        <li>Python</li>
+      </ul>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="glass">
+      <h6>Technical</h6>
+      <ul>
+        <li>Quantity Surveying & BOQs</li>
+        <li>Shop Drawings & As-Built</li>
+        <li>Technical Submittals</li>
+        <li>Method Statements</li>
+        <li>RFI & Document Control</li>
+      </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- PROJECTS -->
+
+<section class="section container hidden">
+  <h2>Projects</h2>
+
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="glass" onclick="openModal('mal_api')">
+      <img src="./images/mal_api.jpg" class="img-fluid mb-3" alt="Card image" id="image9">
+      <h5>MAL-API-Project</h5>
+      <p>Web application project made with flask and use MyAnimeList API to Fetch Data from myanimelist database.</p>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="glass" onclick="openModal('youtube')">
+      <img src="./images/youtube_downloader.jpg" class="img-fluid mb-3" alt="Card image" id="image10">
+      <h5>YouTube Downloader</h5>
+      <p>Desktop app that can download videos and Playlist from YouTube with quality selection.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- MODALS -->
+
+<div class="modal fade" id="projectModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bgc border">
+      <div class="modal-body" id="modalContent"></div>
+      <p class="text-end m-3">
+      <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+
+<footer class="text-center p-4 mt-5">
+  <p>Ahmed Mansour © 2026</p>
+  <p class="mb-5">
+    <a href="./images/resume.pdf" target="_blank" class="text-primary">English CV</a> |
+    <!-- <a href="./images/resume_ar.pdf" target="_blank" class="text-info">Arabic CV</a> | -->
+    <a href="https://linkedin.com/in/ahmed-mansour-900624171" target="_blank" class="text-info link">LinkedIn</a> |
+    <a href="https://github.com/ahmedmansour" target="_blank" class="text-warning link">GitHub</a>
+  </p>
+
+</footer>
+
+
+<!-- SCRIPTS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// DARK MODE
+function toggleMode() {
+  document.body.classList.toggle("light-mode");
+}
+
+// ANIMATION
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
     }
+  });
+});
 
-    // Initialize lightbox for all images
-    openLightbox("image0", "projectWrap0", "overlayImage0");
-    openLightbox("image1", "projectWrap1", "overlayImage1");
-    openLightbox("image2", "projectWrap2", "overlayImage2");
-    openLightbox("image3", "projectWrap3", "overlayImage3");
-    openLightbox("image4", "projectWrap4", "overlayImage4");
-  </script>
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+
+// MODALS
+function openModal(type) {
+  let content = "";
+
+  if (type === "marble_chair") {
+    content = `<h3>Marble Chair</h3><p>Elegant marble chair for modern interiors.</p><img src="./images/Marble Chair.png" class="img-fluid mb-3" alt="Card image" id="image0">`;
+  }
+
+  if (type === "dining_table") {
+    content = `<h3>Dining Table</h3><p>Stylish dining table for modern homes.</p><img src="./images/Dining Table.png" class="img-fluid mb-3" alt="Card image" id="image1">`;
+  }
+
+  if (type === "coffee_table_1") {
+    content = `<h3>Coffee Table 1</h3><p>Functional coffee table for living rooms.</p><img src="./images/Coffee Table 1.png" class="img-fluid mb-3" alt="Card image" id="image2">`;
+  }
+
+  if (type === "coffee_table_2") {
+    content = `<h3>Coffee Table 2</h3><p>Modern coffee table with unique design.</p><img src="./images/Coffee Table 2.png" class="img-fluid mb-3" alt="Card image" id="image3">`;
+  }
+
+  if (type === "sodic_east") {
+    content = `<h3>Sodic East El Shorouk Project</h3><img src="./images/sodic_east_el_shorouk_project.png" class="img-fluid mb-3" alt="Card image" id="image0">`;
+  }
+
+  if (type === "mountain_view") {
+    content = `<h3>Mountain View Project</h3><img src="./images/mountain_view_aliva.jpg" class="img-fluid mb-3" alt="Card image" id="image1">`;
+  }
+
+  if (type === "new_obour") {
+    content = `<h3>New Obour Social Housing Project</h3><img src="./images/New_Obour_Social_Housing_Project.jpg" class="img-fluid mb-3" alt="Card image" id="image2">`;
+  }
+
+  if (type === "r1") {
+    content = `<h3>R1 Residential Building</h3><p> Supervised construction of residential building in New Administrative Capital.</p><img src="./images/R1.png" class="img-fluid mb-3" alt="Card image" id="image3">`;
+  }
+
+  if (type === "r2") {
+    content = `<h3>R2 Residential Building</h3><p> Supervised construction of residential building in New Administrative Capital.</p><img src="./images/R2.jpg" class="img-fluid mb-3" alt="Card image" id="image4">`;
+  }
+
+  if (type === "mal_api") {
+    content = `<h3>MAL-API-Project</h3><p>Web application project made with flask and use MyAnimeList API to Fetch Data from myanimelist database.</p><img src="./images/mal_api.jpg" class="img-fluid mb-3" alt="Card image" id="image5">`;
+  }
+
+  if (type === "youtube") {
+    content = `<h3>YouTube Downloader</h3><p>Desktop app that can download videos and Playlist from YouTube with quality selection.</p><img src="./images/youtube_downloader.jpg" class="img-fluid mb-3" alt="Card image" id="image6">`;
+  }
+
+  document.getElementById("modalContent").innerHTML = content;
+  new bootstrap.Modal(document.getElementById('projectModal')).show();
+}
+
+</script>
+
 </body>
-
 </html>
-
-
